@@ -5,8 +5,8 @@ const TelegramBot = require('node-telegram-bot-api');
 const CoinMarketCap = require('coinmarketcap-api');
 require('dotenv').config();
 const { toCurrency, toNum } = require('./helpers');
-const { currencyBoard } = require('./currencyBoard');
-const { tickerBoard } = require('./tikerBoard');
+const currencyBoard = require('./currencyBoard');
+const tickerBoard = require('./tikerBoard');
 
 const { COIN_API, BOT_TOKEN } = process.env;
 
