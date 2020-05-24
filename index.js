@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable spaced-comment */
+const express = require('express');
 const TelegramBot = require('node-telegram-bot-api');
 const CoinMarketCap = require('coinmarketcap-api');
 require('dotenv').config();
@@ -8,7 +9,13 @@ const { toCurrency, toNum } = require('./helpers');
 const currencyBoard = require('./currencyBoard');
 const tickerBoard = require('./tikerBoard');
 
-const { COIN_API, BOT_TOKEN } = process.env;
+const app = express();
+
+const { COIN_API, BOT_TOKEN, PORT } = process.env;
+
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
+});
 
 
 const client = new CoinMarketCap(COIN_API);
